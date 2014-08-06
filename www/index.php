@@ -2,17 +2,17 @@
 
 require("connect.php");
 
-//require("checkLogin.php");
-require("theme.php");
+require("nanobasket.common.functions.php");
 
-require("mobile.common.functions.php");
+getHeader();
 
-getThemeHeader();
+getTitle("Nano Basket");
 
-getThemeTitle("Dommerplan Mobil");
+//echo "!".$currentState;
 
+showContent($currentState);
 
-
+/*
 ?>
 <table width="100%">
 <?php
@@ -27,7 +27,9 @@ createMenuItem("Log Ud","logout.php");
 </table>
 
 <?php
+*/
 
-getThemeBottom();
+
+getFooter();
 
 ?>
