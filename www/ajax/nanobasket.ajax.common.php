@@ -218,6 +218,22 @@ switch($_POST['action']){
 	  echo $json;
     
     break;
+    
+    case "saveregisterplayers":
+    
+	  if(mysql_num_rows(getCurrentUser()) > 0){
+	  
+		mysql_query("INSERT INTO `players` (`userid`,`gymid`,`players`,`date`) VALUES ('".$_POST['userid']."','".$_POST['gymid']."','".$_POST['players']."',NOW())");
+	  
+		$sql="INSERT INTO `players` (`userid`,`gymid`,`players`,`date`) VALUES ('".$_POST['userid']."','".$_POST['gymid']."','".$_POST['players']."',NOW())";
+	  
+	  }
+	  
+	  $json = '[ { "status": "registered" , "sql": "'.$sql.'" } ]';
+	  
+	  echo $json;
+    
+    break;
 }
 
 ?>

@@ -103,3 +103,6 @@ a img{
 	border:none;
 }
 
+input { width: 96%;}
+
+input:focus { width: 96%;}

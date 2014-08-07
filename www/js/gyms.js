@@ -49,6 +49,7 @@ $(document).ready(function(){
 			$('#address').val("");
 			$('#name').html("");
 			$("#gyms").val("-1");
+			$('#coaches').html("");
 	}});
 
     }
@@ -70,6 +71,7 @@ $(document).ready(function(){
 	    $("#gyms").val("-1");
 	    $('#name').html("");  
 	    $('#address').val("");
+	    $('#coaches').html("");
 	}});
 	
       }

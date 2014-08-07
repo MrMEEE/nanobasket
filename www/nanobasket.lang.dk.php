@@ -38,3 +38,10 @@ Select Coach¤V&aelig;lg tr&aelig;ner
 Coaches:¤Tr&aelig;nere:
 Add Coach¤Tilf&oslash;j tr&aelig;ner
 Remove Coach¤Fjern tr&aelig;ner
+Register players¤Registrer spillere
+View Logs¤Vis logninger
+Gym:¤Hal:
+Number of players¤Antal spillere
+Please select a gym¤Ingen hal er valgt
+Select number of players¤Intet antal spillere er valgt
+Number of players has been saved¤Antallet af spillere er blevet gemt

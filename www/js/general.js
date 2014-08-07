@@ -26,6 +26,18 @@ $(document).ready(function(){
 	    }});
 	    document.location.reload(true);
       });
+      
+      var zoomEnable;
+
+      zoomEnable = function() {
+	$("head meta[name=viewport]").prop("content", "width=device-width, initial-scale=1.0, user-scalable=yes");
+      };
+
+      $("input").on("touchstart", function(e) {
+	$("head meta[name=viewport]").prop("content", "width=device-width, initial-scale=1.0, user-scalable=no");
+      });
+
+      $("input").blur(zoomEnable);
   
 });
 
