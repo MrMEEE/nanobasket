@@ -9,7 +9,7 @@ $(document).ready(function(){
 	    
 	    }else{
 	      
-		  $.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "savegym",  name: $('#name').val(), address: $('#address').val() } ,success: function(data){
+		  $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "savegym",  name: $('#name').val(), address: $('#address').val() } ,success: function(data){
 		    
 		    if(data[0].status == "exists"){
 			alert(fetchText("Gym already exists"));
@@ -25,7 +25,7 @@ $(document).ready(function(){
   $('#gyms').on('change',null,function(event){
     
     if($('#gyms').val() != -1){
-    $.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgym", id: $('#gyms').val() } ,success: function(data){
+    $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgym", id: $('#gyms').val() } ,success: function(data){
 		    $('#name').html(data[0].name);
 		    $('#address').val(data[0].address);
 		    $('#coaches').html(data[0].users.replace(/¤/g, "<br>"))
@@ -45,7 +45,7 @@ $(document).ready(function(){
     event.preventDefault();
     
     if($('#gyms').val() != -1){
-	$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "editgym", id: $('#gyms').val(), address: $('#address').val() } ,success: function(data){
+	$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "editgym", id: $('#gyms').val(), address: $('#address').val() } ,success: function(data){
 			$('#address').val("");
 			$('#name').html("");
 			$("#gyms").val("-1");
@@ -66,7 +66,7 @@ $(document).ready(function(){
       
       if (answer == true) {
 	
-	$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "deletegym", id: $('#gyms').val() } ,success: function(data){
+	$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "deletegym", id: $('#gyms').val() } ,success: function(data){
 	    $("#gyms option[value='"+$('#gyms').val()+"']").remove();
 	    $("#gyms").val("-1");
 	    $('#name').html("");  
@@ -84,11 +84,11 @@ $(document).ready(function(){
   
     event.preventDefault();
     
-	$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "addcoach", gymid: $('#gyms').val(), userid: $('#users').val()} ,success: function(data){
+	$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "addcoach", gymid: $('#gyms').val(), userid: $('#users').val()} ,success: function(data){
 	    
 	    if(data[0].status == "added"){
 	      
-		$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgym", id: $('#gyms').val() } ,success: function(data){
+		$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgym", id: $('#gyms').val() } ,success: function(data){
 		    $('#coaches').html(data[0].users.replace(/¤/g, "<br>"))
 		}});
 	      
@@ -101,11 +101,11 @@ $(document).ready(function(){
   
     event.preventDefault();
     
-	$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "remcoach", gymid: $('#gyms').val(), userid: $('#users').val()} ,success: function(data){
+	$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "remcoach", gymid: $('#gyms').val(), userid: $('#users').val()} ,success: function(data){
 	    
 	    if(data[0].status == "removed"){
 	      
-		$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgym", id: $('#gyms').val() } ,success: function(data){
+		$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgym", id: $('#gyms').val() } ,success: function(data){
 		    $('#coaches').html(data[0].users.replace(/¤/g, "<br>"))
 		}});
 	      

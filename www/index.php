@@ -2,11 +2,11 @@
 
 require("connect.php");
 
-require("nanobasket.common.functions.php");
+require("sfobasket.common.functions.php");
 
 getHeader();
 
-getTitle("Nano Basket");
+getTitle("SFO Basket");
 
 //echo "!".$currentState;
 

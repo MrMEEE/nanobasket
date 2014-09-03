@@ -26,7 +26,7 @@ $(document).ready(function(){
 	    }else{
 		  var password = CryptoJS.SHA256($("#password1").val()).toString();
 		  
-		  $.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "saveuser", newuser: $('#newuser').val(), newpassword: password, email: $('#email').val(), name: $('#name').val(), usertype: $('#usertype').val() } ,success: function(data){
+		  $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "saveuser", newuser: $('#newuser').val(), newpassword: password, email: $('#email').val(), name: $('#name').val(), usertype: $('#usertype').val() } ,success: function(data){
 		    
 		    if(data[0].status == "exists"){
 			alert(fetchText("User already exists"));
@@ -45,7 +45,7 @@ $(document).ready(function(){
   $('#users').on('change',null,function(event){
     //$('#name').html($('#users').val());
     if($('#users').val() != -1){
-    $.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getuser", id: $('#users').val() } ,success: function(data){
+    $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getuser", id: $('#users').val() } ,success: function(data){
 		    
 		    $('#username').html(data[0].username);
 		    $('#name').val(data[0].name);
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	  
 	}
 	
-	$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "edituser", id: $('#users').val(), newpassword: password, email: $('#email').val(), name: $('#name').val(), usertype: $('#usertype').val() } ,success: function(data){
+	$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "edituser", id: $('#users').val(), newpassword: password, email: $('#email').val(), name: $('#name').val(), usertype: $('#usertype').val() } ,success: function(data){
 			$('#name').val("");
 			$('#password1').val("");
 			$('#password2').val("");
@@ -110,7 +110,7 @@ $(document).ready(function(){
       
       if (answer == true) {
 	
-	$.ajax({type: "POST", url: "ajax/nanobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "deleteuser", id: $('#users').val() } ,success: function(data){
+	$.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "deleteuser", id: $('#users').val() } ,success: function(data){
 	    $("#users option[value='"+$('#users').val()+"']").remove();
 	    $("#users").val("-1");
 	    $('#username').html("");  

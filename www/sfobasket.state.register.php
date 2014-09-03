@@ -49,17 +49,55 @@ case "registerplayers":
       
       echo '</select><br><br>';
       
-      echo fetchText("Number of players")."<br>";
+      echo fetchText("Number of players:")."<br>";
       
-      echo '<select id="players">
-	      <option value="-1">'.fetchText("Number of players").'</option>';
-	      
-      for ($i = 1; $i <= 50; $i++) {
+      for ($i = 0; $i <= 50; $i++) {
       
-	    echo '<option value="'.$i.'">'.$i.'</option>';
+	    $numbers .= '<option value="'.$i.'">'.$i.'</option>
+	    ';
       }
       
+      echo '<select id="boys">
+	      <option value="-1">'.fetchText("Number of boys").'</option>';
+	      echo $numbers;
+      
+      
       echo '</select><br><br>';
+      
+      echo '<select id="girls">
+	      <option value="-1">'.fetchText("Number of girls").'</option>';
+	      echo $numbers;
+      
+      
+      echo '</select><br><br>';
+      
+      echo fetchText("Date:")."<br>";
+      
+      echo '<select id="day">';
+	      for ($i = 1; $i <= 31; $i++) {
+		    if ($i == date('d')){
+			echo '<option value="'.$i.'" selected>'.$i.'</option>
+		    ';
+		    }else{
+			echo '<option value="'.$i.'">'.$i.'</option>
+		    ';
+		    }
+      }
+      
+      echo '</select>-';
+      
+      echo '<select id="month">';
+	      for ($i = 1; $i <= 12; $i++) {
+		    if ($i == date('n')){
+			echo '<option value="'.$i.'" selected>'.$i.'</option>
+		    ';
+		    }else{
+			echo '<option value="'.$i.'">'.$i.'</option>
+		    ';
+		    }
+      }
+      
+      echo '</select>-<span id="year">'.date('Y').'</span>';
       
       getPostItem();
       

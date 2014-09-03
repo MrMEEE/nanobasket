@@ -103,6 +103,18 @@ a img{
 	border:none;
 }
 
-input { width: 96%;}
+input { width: 96%;
+	font-size:60px;
+	height: 200px;
+}
 
-input:focus { width: 96%;}
+input:focus { width: 96%;
+	      font-size:60px;
+	      height: 200px;
+}
+
+select {
+  font-size:60px;
+	      height: 200px;
+  
+}

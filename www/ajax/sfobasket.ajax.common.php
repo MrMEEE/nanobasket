@@ -1,7 +1,7 @@
 <?php
 
 require("../connect.php");
-require("../nanobasket.common.functions.php");
+require("../sfobasket.common.functions.php");
 
 switch($_POST['action']){
 
@@ -223,13 +223,13 @@ switch($_POST['action']){
     
 	  if(mysql_num_rows(getCurrentUser()) > 0){
 	  
-		mysql_query("INSERT INTO `players` (`userid`,`gymid`,`players`,`date`) VALUES ('".$_POST['userid']."','".$_POST['gymid']."','".$_POST['players']."',NOW())");
-	  
-		$sql="INSERT INTO `players` (`userid`,`gymid`,`players`,`date`) VALUES ('".$_POST['userid']."','".$_POST['gymid']."','".$_POST['players']."',NOW())";
+		mysql_query("INSERT INTO `players` (`userid`,`gymid`,`boys`,`girls`,`date`) VALUES ('".$_POST['userid']."','".$_POST['gymid']."','".$_POST['boys']."','".$_POST['girls']."','".$_POST['year']."-".$_POST['month']."-".$_POST['day']."')");
+		
+		$sql = "INSERT INTO `players` (`userid`,`gymid`,`boys`,`girls`,`date`) VALUES ('".$_POST['userid']."','".$_POST['gymid']."','".$_POST['boys']."','".$_POST['girls']."','".$_POST['year']."-".$_POST['month']."-".$_POST['day']."'";
 	  
 	  }
 	  
-	  $json = '[ { "status": "registered" , "sql": "'.$sql.'" } ]';
+	  $json = '[ { "status": "registered" , "sql": "'.$sql.'"} ]';
 	  
 	  echo $json;
     

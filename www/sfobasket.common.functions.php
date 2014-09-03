@@ -18,11 +18,16 @@ function getHeader(){
   global $currentState;
   $currentState = $_POST['nextState'];
   if ($currentState == ""){
-      $currentState = "mainmenu";
+      $currentUser = mysql_fetch_assoc(getCurrentUser());
+      if(intval(5) == intval($currentUser['access'])){
+	    $currentState = "registerplayers";
+      }else{
+	    $currentState = "mainmenu";
+      }
   }
   
   echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Nano Basket</title>';
+	<title>SFO Basket</title>';
   
   echo '<form id="mainForm" name="mainForm" method="post">
           <input type="hidden" id="nextState" name="nextState" value="'.$currentState.'">';
@@ -86,7 +91,7 @@ function getTitle($pagename){
 echo '</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Nano Basket</title>
+<title>SFO Basket</title>
 
 </head>
 
@@ -145,10 +150,10 @@ function getLanguage(){
   $config = getConfiguration();
   
   $language = array();
-  if (file_exists("nanobasket.lang.".$config['language'].".php")){
-      $handle = fopen("nanobasket.lang.".$config['language'].".php", "r");
+  if (file_exists("sfobasket.lang.".$config['language'].".php")){
+      $handle = fopen("sfobasket.lang.".$config['language'].".php", "r");
   }else{
-      $handle = fopen("../nanobasket.lang.".$config['language'].".php", "r");
+      $handle = fopen("../sfobasket.lang.".$config['language'].".php", "r");
   }
   if ($handle) {
       while (($line = fgets($handle)) !== false) {
@@ -185,7 +190,12 @@ function showContent($state){
   $currentState = $state;
   
   if ($currentState == ""){
-      $currentState = "mainmenu";
+      $currentUser = mysql_fetch_assoc(getCurrentUser());
+      if(intval(5) == intval($currentUser['access'])){
+	    $currentState = "registerplayers";
+      }else{
+	    $currentState = "mainmenu";
+      }
   }
   
   echo '<table width=100%>
@@ -202,7 +212,7 @@ function showContent($state){
   }else{
 	  $showstate = "switch(".$currentState."){";
 	    
-	    foreach (glob("nanobasket.state.*.php") as $filename){
+	    foreach (glob("sfobasket.state.*.php") as $filename){
 	    
 	      $showstate .= str_replace('?>','',str_replace('<?php','',file_get_contents($filename)));
 	    
