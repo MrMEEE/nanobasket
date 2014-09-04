@@ -16,10 +16,14 @@ case "registerplayers":
       echo '<script type="text/javascript" src="js/players.js"></script>';
 
       getPreItem();
+      
+      $user = mysql_fetch_assoc(getCurrentUser());
+      
+      echo fetchText("Logged on as:")." ".$user['name']."<br><br>";
 
       echo fetchText("Gym:")."<br>";
       
-      $user = mysql_fetch_assoc(getCurrentUser());
+      
       
       echo '<input type="hidden" id="userid" value="'.$user['id'].'">';
       

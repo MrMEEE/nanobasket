@@ -24,28 +24,29 @@ Edit Users¤Rediger brugere
 Select User¤V&aelig;lg bruger
 Change Password:¤Skift adgangkode
 Delete¤Slet
-Gyms¤Haller
-Create Gym¤Opret hal
-Edit Gym¤Rediger haller
+Gyms¤Skole/SFO
+Create Gym¤Opret Skole/SFO
+Edit Gym¤Rediger Skole/SFO
 Name:¤Navn:
 Address:¤Adresse:
-Please enter name of the Gym¤Indtast hallens navn
-Gym already exists¤Hallen existere allerede
-Gym created¤Hal oprettet
-Select Gym¤V&aelig;lg hal
-Delete gym: ¤Slet hal: 
+Please enter name of the Gym¤Indtast Skolen/SFO'ens navn
+Gym already exists¤Skole/SFO existere allerede
+Gym created¤Skole/SFO oprettet
+Select Gym¤V&aelig;lg Skole/SFO
+Delete gym: ¤Slet Skole/SFO: 
 Select Coach¤V&aelig;lg tr&aelig;ner
 Coaches:¤Tr&aelig;nere:
 Add Coach¤Tilf&oslash;j tr&aelig;ner
 Remove Coach¤Fjern tr&aelig;ner
 Register players¤Registrer tr&aelig;ning
 View Logs¤Vis logninger
-Gym:¤Hal:
+Gym:¤Skole/SFO:
 Number of boys¤Antal drenge
 Number of girls¤Antal piger
-Please select a gym¤Ingen hal er valgt
+Please select a gym¤Ingen Skole/SFO er valgt
 Select number of girls¤Intet antal piger valgt
 Select number of boys¤Intet antal drenge valgt
 Number of players has been saved¤Antallet af spillere er blevet gemt
 Number of players:¤Antal spillere:
 Date:¤Dato:
+Logged on as:¤Logget p&aring; som:

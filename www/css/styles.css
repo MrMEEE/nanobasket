@@ -115,6 +115,32 @@ input:focus { width: 96%;
 
 select {
   font-size:60px;
-	      height: 200px;
+  height: 200px;
+  width: 96%;
+  
+}
+
+#day {
+  font-size:60px;
+  height: 200px;
+  width: 5%;
+  
+}
+#month {
+  font-size:60px;
+  height: 200px;
+  width: 5%;
+  
+}
+
+.logo {
+  height: 200px;
+  vertical-align:middle;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.logotext {
+  font-size: 60px;
   
 }

@@ -97,7 +97,8 @@ echo '</script>
 
 <body>
 
-<h1>'.$pagename.'</h1>
+<div width="100%"><img class="logo" src="img/logo_sfobasket_small.jpg"></div>
+
 
 <div id="main">';
 
