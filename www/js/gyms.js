@@ -47,6 +47,13 @@ $(document).ready(function(){
   
   $('#areas').on('change',null,function(event){
     
+    $('#gyms')
+	.find('option')
+	.remove()
+	.end()
+	.append('<option value="-1">'+fetchText("Select Gym")+'</option>')
+	.val('-1');
+    
     if($('#areas').val() != -1){
       $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgyms", id: $('#areas').val() } ,success: function(data){
 		    $.each(data, function(index) {
@@ -54,12 +61,6 @@ $(document).ready(function(){
 		    });
     }});
     }else{
-      $('#gyms')
-	.find('option')
-	.remove()
-	.end()
-	.append('<option value="-1">'+fetchText("Select Gym")+'</option>')
-	.val('-1');
 	
       $('#name').html("");
       $('#address').val("");
