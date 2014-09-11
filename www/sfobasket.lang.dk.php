@@ -32,7 +32,7 @@ Address:¤Adresse:
 Please enter name of the Gym¤Indtast Skolen/SFO'ens navn
 Gym already exists¤Skole/SFO existere allerede
 Gym created¤Skole/SFO oprettet
-Select Gym¤V&aelig;lg Skole/SFO
+Select Gym¤V&aeliglg Skole/SFO
 Delete gym: ¤Slet Skole/SFO: 
 Select Coach¤V&aelig;lg tr&aelig;ner
 Coaches:¤Tr&aelig;nere:
@@ -50,3 +50,11 @@ Number of players has been saved¤Antallet af spillere er blevet gemt
 Number of players:¤Antal spillere:
 Date:¤Dato:
 Logged on as:¤Logget p&aring; som:
+Create Area¤Opret Kommune
+Edit Area¤Rediger Kommune
+Please enter name of the Area¤Indtast navnet på kommunen
+Area already exists¤Kommunen existere allerede
+Area created¤Kommune oprettet
+Select Area¤V&aelig;lg kommune
+Delete area: ¤Slet kommune: 
+Please select an Area¤V&aeliglg venligst en kommune

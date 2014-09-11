@@ -6,10 +6,14 @@ $(document).ready(function(){
 	    if($('#name').val() == ""){
 	      
 	      alert(fetchText("Please enter name of the Gym"));
+	      
+	    }else if($('#areas').val() == -1){
 	    
+	      alert(fetchText("Please select an Area"));
+	      
 	    }else{
 	      
-		  $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "savegym",  name: $('#name').val(), address: $('#address').val() } ,success: function(data){
+		  $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "savegym",  name: $('#name').val(), address: $('#address').val(), area: $('#areas').val()} ,success: function(data){
 		    
 		    if(data[0].status == "exists"){
 			alert(fetchText("Gym already exists"));
@@ -17,6 +21,7 @@ $(document).ready(function(){
 			alert(fetchText("Gym created"));
 			$('#name').val("");
 			$('#address').val("");
+			$('#areas').val("-1")
 		    }
 		  }});
 	    }
@@ -38,6 +43,30 @@ $(document).ready(function(){
     $('#coaches').html("");
     
   }
+  });
+  
+  $('#areas').on('change',null,function(event){
+    
+    if($('#areas').val() != -1){
+      $.ajax({type: "POST", url: "ajax/sfobasket.ajax.common.php",async:false,dataType: "json",data:{ action: "getgyms", id: $('#areas').val() } ,success: function(data){
+		    $.each(data, function(index) {
+			  $('#gyms').append('<option value="'+ data[index].id +'">'+ data[index].name +'</option>');
+		    });
+    }});
+    }else{
+      $('#gyms')
+	.find('option')
+	.remove()
+	.end()
+	.append('<option value="-1">'+fetchText("Select Gym")+'</option>')
+	.val('-1');
+	
+      $('#name').html("");
+      $('#address').val("");
+      $('#coaches').html("");
+     
+    }
+    
   });
   
   $('#editgym').on('click',null,function(event){

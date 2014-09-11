@@ -113,7 +113,25 @@ switch($_POST['action']){
 		$query = mysql_query("SELECT * FROM `gyms` WHERE `name`='".$_POST['name']."'");
 		
 		if(mysql_num_rows($query) == 0){
-		      mysql_query("INSERT INTO `gyms` (`name`,`address`) VALUES ('".$_POST['name']."','".$_POST['address']."')");
+		      mysql_query("INSERT INTO `gyms` (`name`,`address`,`area`) VALUES ('".$_POST['name']."','".$_POST['address']."','".$_POST['area']."')");
+		      $json = '[ { "status": "created" } ]';
+		}else{
+		      $json = '[ { "status": "exists" } ]';
+		}
+	  
+		echo $json;
+	  }	  
+    
+    break;
+    
+    case "savearea":
+    
+	  if(mysql_num_rows(getCurrentUser()) > 0){
+	  
+		$query = mysql_query("SELECT * FROM `areas` WHERE `name`='".$_POST['name']."'");
+		
+		if(mysql_num_rows($query) == 0){
+		      mysql_query("INSERT INTO `areas` (`name`) VALUES ('".$_POST['name']."')");
 		      $json = '[ { "status": "created" } ]';
 		}else{
 		      $json = '[ { "status": "exists" } ]';
@@ -147,6 +165,22 @@ switch($_POST['action']){
 	  echo $json;
     
     break;
+    
+    case "getgyms":
+    
+	  $gyms = mysql_query("SELECT * FROM `gyms` WHERE `area`='".$_POST['id']."' ORDER BY `name`");
+	  
+	  $i = 0;
+	  while($gym = mysql_fetch_assoc($gyms)){
+	      
+	      $gymlist[$i]['name'] = $gym['name'];
+	      $gymlist[$i]['id'] = $gym['id'];
+	      $i++;
+	      
+	  }
+	  
+	  echo json_encode($gymlist);
+    break;
 
     case "editgym":
     
@@ -166,6 +200,20 @@ switch($_POST['action']){
 	  if(mysql_num_rows(getCurrentUser()) > 0){
 	  
 		  mysql_query("DELETE FROM `gyms` WHERE `id`='".$_POST['id']."'");
+	  
+	  }
+	  
+	  $json = '[ { "status": "deleted" } ]';
+	  
+	  echo $json;
+    
+    break;
+    
+    case "deletearea":
+	  
+	  if(mysql_num_rows(getCurrentUser()) > 0){
+	  
+		  mysql_query("DELETE FROM `areas` WHERE `id`='".$_POST['id']."'");
 	  
 	  }
 	  
